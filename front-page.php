@@ -76,7 +76,7 @@
                             <time datetime="<?php the_time('Y-m-d'); ?>" class="front-news__date"><?php the_time('Y.m.d'); ?></time>
                             <p class="front-news__category">
                                 <?php if (!empty($categories)) : ?>
-                                    <?php echo $categories[0]->cat_name; ?>
+                                    <?php echo esc_html($categories[0]->name); ?>
                                 <?php endif; ?>
                             </p>
                         </div>
