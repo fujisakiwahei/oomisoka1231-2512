@@ -2521,4 +2521,11 @@ Version: 1.0
 
 .wpcf7-spinner {
   display: none !important;
+}
+
+/* ===============================================
+ *  Turnstileの認証
+ =============================================== */
+.wpcf7-turnstile {
+  margin-bottom: 24px;
 }/*# sourceMappingURL=style.css.map */
