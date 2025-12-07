@@ -376,6 +376,7 @@
     }
 
     .material-symbols-rounded {
+      pointer-events: none;
       font-size: 24px;
       font-weight: 300;
       transition: all 0.5s $easeOutQuad;
