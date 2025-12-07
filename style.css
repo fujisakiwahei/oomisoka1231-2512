@@ -1,0 +1,2524 @@
+@charset "UTF-8";
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box; /* box-sizingを追加すると便利です */
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ----------------------------------- */
+/* --- フォーム要素のリセットCSS --- */
+/* ----------------------------------- */
+input,
+button,
+textarea,
+select {
+  -webkit-appearance: none; /* Safari, Chromeなどのベンダープレフィックス */
+  -moz-appearance: none; /* Firefox */
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+/* buttonとinput[type="button"]などにカーソルをポインターに */
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  cursor: pointer;
+}
+
+/* iOSでの内側の影を削除 */
+input[type=text],
+input[type=email],
+input[type=search],
+input[type=password],
+textarea {
+  -webkit-appearance: none;
+}
+
+/* selectの矢印を非表示にする（基本的なリセット） */
+select::-ms-expand {
+  /* IE */
+  display: none;
+}
+
+/* textareaのリサイズを無効化（必要に応じて縦(vertical)や横(horizontal)に設定） */
+textarea {
+  resize: none;
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+* {
+  font-feature-settings: "palt";
+}
+
+body {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Noto Sans JP", sans-serif;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  color: #333;
+}
+
+main {
+  position: relative;
+}
+
+/* ===============================================
+     aタグ
+  =============================================== */
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ===============================================
+     セクション
+  =============================================== */
+/* ===============================================
+     セクションタイトル
+  =============================================== */
+.section-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.section-title .section-title__en {
+  font-size: 40px;
+  line-height: 1;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+  text-transform: uppercase;
+}
+.section-title .section-title__jp {
+  font-size: 14px;
+  color: #8d8d8d;
+}
+
+/* ===============================================
+     ページタイトル
+  =============================================== */
+/* ===============================================
+       ボタン
+  =============================================== */
+.button {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 0vh;
+  font-size: 16px;
+  font-family: "EB Garamond", serif;
+  background: transparent;
+  color: #0cae2a;
+  border: 1px solid #0cae2a;
+  transition: all 0.5s;
+}
+@media (hover: hover) {
+  .button:hover {
+    border-radius: 24px;
+    background: #0cae2a;
+    color: #fff;
+  }
+}
+@media (hover: none) {
+  .button {
+    border-radius: 24px;
+    background: #0cae2a !important;
+    color: #fff !important;
+  }
+  .button:active {
+    opacity: 0.7;
+    scale: 0.98;
+  }
+}
+.button .material-symbols-rounded {
+  font-size: 20px;
+  font-weight: 300;
+}
+
+/* ===============================================
+       改行
+  =============================================== */
+/* ===============================================
+   *  デバイスサイズに応じた表示切り替え
+  =============================================== */
+@media screen and (max-width: 1024px) {
+  .pc-only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .under-tablet-only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .over-tablet-only {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sp-only {
+    display: none;
+  }
+}
+
+/* ===============================================
+       グローバルナビゲーション
+  =============================================== */
+/* ===============================================
+   *  制作実績
+   =============================================== */
+.works {
+  position: relative;
+  width: 100%;
+  padding: 80px 40px;
+  background: #fff;
+  overflow-x: hidden;
+  /* アイコン回転バウンスアニメーション */
+}
+@media (max-width: 1024px) {
+  .works {
+    padding: 40px 20px;
+  }
+}
+.works .works__deco-circle {
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  top: 40px;
+  right: 80px;
+  width: 300px;
+  height: 300px;
+}
+@media (max-width: 768px) {
+  .works .works__deco-circle {
+    top: 20px;
+    right: 0;
+    width: 200px;
+    height: 200px;
+  }
+}
+.works .works__deco-circle img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.works .works__deco-star {
+  z-index: 1;
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+}
+.works .works__deco-star--1 {
+  transform: translateX(-25vw);
+}
+.works .works__deco-star--2 {
+  bottom: 80px;
+  transform: translateX(-15vw);
+}
+.works .works__deco-star--3 {
+  bottom: 120px;
+  transform: translateX(25vw);
+}
+.works .works__inner {
+  z-index: 2;
+  position: relative;
+  width: 100%;
+  margin-inline: auto;
+}
+.works .works__inner .section-title {
+  align-items: center;
+}
+.works .works__list {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: start;
+}
+.works .works__list .works__item {
+  width: calc(33.3333333333% - 26.6666666667px);
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .works .works__list .works__item {
+    width: calc(50% - 40px);
+    flex-direction: column;
+    border: 1px solid #02120b;
+  }
+}
+@media (max-width: 768px) {
+  .works .works__list .works__item {
+    width: 100%;
+  }
+}
+.works .works__list .works__item .works__image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+.works .works__list .works__item .works__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.works .works__list .works__text-area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(2, 18, 11, 0.93);
+  color: #fff;
+  opacity: 0;
+  transition: all 0.5s;
+}
+@media (max-width: 1024px) {
+  .works .works__list .works__text-area {
+    position: relative;
+    padding: 20px;
+    opacity: 1;
+  }
+}
+@media (hover: hover) {
+  .works .works__list .works__text-area:hover {
+    opacity: 1;
+  }
+  .works .works__list .works__text-area:hover .works__title {
+    margin-bottom: 0px;
+  }
+  .works .works__list .works__text-area:hover .works__information {
+    margin-bottom: 0px;
+  }
+  .works .works__list .works__text-area:hover .works__description-title {
+    margin-bottom: 0px;
+  }
+  .works .works__list .works__text-area:hover .works__description {
+    margin-bottom: 0px;
+  }
+}
+.works .works__list .works__text-area .works__title {
+  font-size: 24px;
+  font-family: "EB Garamond", serif, "Noto Serif JP", serif;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.works .works__list .works__text-area .works__information {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #a9a9a9;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-bottom: 10px;
+}
+@media (max-width: 1024px) {
+  .works .works__list .works__text-area .works__information {
+    margin-bottom: 0px;
+  }
+}
+.works .works__list .works__text-area .works__description-title {
+  margin-top: 40px;
+  font-size: 14px;
+  line-height: 1;
+  font-family: "EB Garamond", serif;
+  color: #ededed;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-bottom: 20px;
+}
+@media (max-width: 1024px) {
+  .works .works__list .works__text-area .works__description-title {
+    margin-bottom: 0px;
+  }
+}
+.works .works__list .works__text-area .works__description-title::after {
+  content: "";
+  display: block;
+  margin-top: 16px;
+  margin-inline: auto;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.7);
+}
+.works .works__list .works__text-area .works__description {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 300;
+  color: #ededed;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-bottom: 10px;
+}
+@media (max-width: 1024px) {
+  .works .works__list .works__text-area .works__description {
+    margin-bottom: 0px;
+  }
+}
+.works .button--view-works {
+  margin-top: 80px;
+  margin-inline: auto;
+}
+@media (max-width: 1024px) {
+  .works .button--view-works {
+    margin-top: 40px;
+  }
+}
+.works .button--works-link {
+  margin-top: 20px;
+  background: #fff;
+  color: #02120b;
+  border: none;
+}
+@media (hover: none) {
+  .works .button--works-link {
+    border-radius: 24px;
+    background: #fff !important;
+    color: #02120b !important;
+  }
+  .works .button--works-link:active {
+    opacity: 0.7;
+    scale: 0.98;
+  }
+}
+@keyframes bounceRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(50deg);
+  }
+  40% {
+    transform: rotate(-40deg);
+  }
+  60% {
+    transform: rotate(30deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  90% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* ===============================================
+ *  カテゴリーリスト
+ =============================================== */
+.archive-news__category-list,
+.works__category-list {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .archive-news__category-list,
+  .works__category-list {
+    margin-top: 24px;
+    gap: 12px;
+  }
+}
+.archive-news__category-list .archive-news__category-item,
+.archive-news__category-list .works__category-item,
+.works__category-list .archive-news__category-item,
+.works__category-list .works__category-item {
+  flex-shrink: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-inline: 16px;
+  height: 32px;
+  border-radius: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+  background: #fff;
+  border: 1px solid #0cae2a;
+  transition: all 0.5s;
+}
+@media (max-width: 768px) {
+  .archive-news__category-list .archive-news__category-item,
+  .archive-news__category-list .works__category-item,
+  .works__category-list .archive-news__category-item,
+  .works__category-list .works__category-item {
+    font-size: 14px;
+    padding-inline: 10px;
+    height: 28px;
+  }
+}
+.archive-news__category-list .archive-news__category-item.is-active,
+.archive-news__category-list .works__category-item.is-active,
+.works__category-list .archive-news__category-item.is-active,
+.works__category-list .works__category-item.is-active {
+  pointer-events: none;
+  border-color: #0cae2a;
+  color: #fff;
+  background: #0cae2a;
+}
+@media (hover: hover) {
+  .archive-news__category-list .archive-news__category-item:hover,
+  .archive-news__category-list .works__category-item:hover,
+  .works__category-list .archive-news__category-item:hover,
+  .works__category-list .works__category-item:hover {
+    border-color: #0cae2a;
+    color: #fff;
+    background: #0cae2a;
+  }
+}
+
+/* ===============================================
+ *  制作実績へのボタン
+ =============================================== */
+.button--view-works .material-symbols-rounded {
+  transform: rotate(0deg);
+  transform-origin: top center;
+}
+@media (hover: hover) {
+  .button--view-works:hover .material-symbols-rounded {
+    animation: bounceRotate 1s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  }
+}
+
+/* ===============================================
+ *  GSAPでふわっと
+ =============================================== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px); /* 下30px */
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+header {
+  z-index: 100;
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  height: 60px;
+  border-radius: 50vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  transition: all 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+@media (max-width: 1024px) {
+  header {
+    width: calc(100% - 40px);
+    top: 12px;
+  }
+}
+header .header__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-inline: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+@media (max-width: 1024px) {
+  header .header__inner {
+    padding-inline: 20px;
+  }
+}
+@media (max-width: 768px) {
+  header .header__inner {
+    align-items: start;
+    padding-top: 12px;
+  }
+}
+header .header__inner .header__inner-logo-button-wrapper {
+  display: contents;
+}
+@media (max-width: 768px) {
+  header .header__inner .header__inner-logo-button-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+header .header__inner .header__logo {
+  font-family: "EB Garamond", serif;
+  font-size: 32px;
+}
+@media (hover: hover) {
+  header .header__inner .header__logo:hover {
+    color: #0cae2a;
+  }
+}
+@media (max-width: 1024px) {
+  header .header__inner .header__logo {
+    font-size: clamp(16px, 6vw, 28px);
+  }
+}
+header .header__inner .header__nav-button {
+  display: none;
+}
+@media (max-width: 768px) {
+  header .header__inner .header__nav-button {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+}
+header .header__inner .header__nav-button span {
+  width: 20px;
+  height: 2px;
+  border-radius: 50vh;
+  background: #02120b;
+  transform: translateX(0);
+  transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+header .header__inner .header__nav-button .header__nav-button__menu {
+  margin-top: 2px;
+  font-size: 10px;
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  line-height: 1;
+  color: #02120b;
+}
+@media (max-width: 768px) {
+  header .header__inner .header__nav {
+    display: none;
+  }
+}
+header .header__inner .header__nav .header__nav-list {
+  display: flex;
+  gap: 20px;
+}
+header .header__inner .header__nav .header__nav-list .header__nav-item .header__nav-link {
+  font-size: 16px;
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+  color: #333;
+}
+@media (hover: hover) {
+  header .header__inner .header__nav .header__nav-list .header__nav-item .header__nav-link:hover {
+    color: #0cae2a;
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+header .header__nav-global {
+  position: absolute;
+  top: 120px;
+  left: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+header .header__nav-global .header__nav-global-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  gap: clamp(20px, 6vw, 40px);
+}
+@media (max-width: 768px) {
+  header .header__nav-global .header__nav-global-list .header__nav-global-item .header__nav-global-link {
+    font-size: clamp(16px, 8vw, 32px);
+    font-family: "EB Garamond", serif;
+    font-weight: 500;
+    color: #02120b;
+  }
+}
+header.is-open {
+  height: calc(100vh - 24px);
+  width: calc(100% - 24px);
+  border-radius: 16px;
+}
+header.is-open .header__inner .header__nav-button span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+header.is-open .header__inner .header__nav-button span:nth-child(2) {
+  transform: translateX(50%);
+  opacity: 0;
+}
+header.is-open .header__inner .header__nav-button span:nth-child(3) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+@media (max-width: 768px) {
+  header.is-open .header__nav-global {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+header .header__nav-global-image {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  pointer-events: none;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 60vw;
+  height: auto;
+}
+header .header__nav-global-image.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+header .header__nav-global-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+footer {
+  width: 100%;
+  padding-inline: 40px;
+  background-color: #02120b;
+}
+footer .footer__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-block: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  color: #fff;
+}
+footer .footer__inner .footer__name-area {
+  line-height: 1;
+}
+footer .footer__inner .footer__name-area .footer__name-area__name {
+  font-size: 4vw;
+  font-family: "EB Garamond", serif;
+  transition: all 0.3s;
+}
+@media (hover: hover) {
+  footer .footer__inner .footer__name-area .footer__name-area__name:hover {
+    opacity: 0.7;
+    scale: 0.98;
+  }
+}
+@media (max-width: 768px) {
+  footer .footer__inner .footer__name-area .footer__name-area__name {
+    font-size: 10vw;
+  }
+}
+footer .footer__inner .footer__name-area .footer__name-area__copyright {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #ededed;
+}
+@media (max-width: 768px) {
+  footer .footer__inner .footer__name-area .footer__name-area__copyright {
+    font-size: 2.5vw;
+  }
+}
+footer .footer__inner .footer__name-area .footer__name-area__privacy-policy-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #ededed;
+  transition: all 0.3s;
+}
+@media (hover: hover) {
+  footer .footer__inner .footer__name-area .footer__name-area__privacy-policy-link:hover {
+    opacity: 0.7;
+  }
+}
+footer .footer__inner .footer__nav .footer__nav-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  -moz-column-gap: 24px;
+       column-gap: 24px;
+  row-gap: 12px;
+}
+footer .footer__inner .footer__nav .footer__nav-list .footer__nav-item .footer__nav-link {
+  font-size: 16px;
+  font-family: "EB Garamond", serif;
+  color: #fff;
+}
+@media (hover: hover) {
+  footer .footer__inner .footer__nav .footer__nav-list .footer__nav-item .footer__nav-link:hover {
+    color: #0cae2a;
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+footer .footer__inner .footer__sns-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+footer .footer__inner .footer__sns-area .footer__sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s;
+}
+@media (hover: hover) {
+  footer .footer__inner .footer__sns-area .footer__sns-link:hover {
+    opacity: 0.7;
+    scale: 0.95;
+  }
+}
+footer .footer__inner .footer__sns-area .footer__sns-link img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+.home {
+  /* ===============================================
+   *  フロントページ ファーストビュー
+   =============================================== */
+  /* ===============================================
+   *  フロントページ ニュース
+   =============================================== */
+}
+.home .first-view {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  background-image: url(./assets/images/front/dot-grid-bg.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.home .first-view .first-view__inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  /* 線のアニメーション部分 */
+  /* 線のアニメーション */
+}
+@media (max-width: 1024px) {
+  .home .first-view .first-view__inner {
+    align-items: start;
+  }
+}
+.home .first-view .first-view__inner .first-view__title-area {
+  margin-right: 15vw;
+}
+@media (max-width: 1024px) {
+  .home .first-view .first-view__inner .first-view__title-area {
+    margin-right: 8vw;
+    margin-top: 200px;
+  }
+}
+@media (max-width: 768px) {
+  .home .first-view .first-view__inner .first-view__title-area {
+    margin-top: 120px;
+    margin-right: 0;
+    margin-inline: auto;
+  }
+}
+.home .first-view .first-view__inner .first-view__title-area .first-view__title {
+  font-family: "EB Garamond", serif;
+  font-size: 80px;
+  line-height: 1;
+  color: #0cae2a;
+}
+@media (max-width: 1024px) {
+  .home .first-view .first-view__inner .first-view__title-area .first-view__title {
+    font-size: 11vw;
+  }
+}
+@media (max-width: 768px) {
+  .home .first-view .first-view__inner .first-view__title-area .first-view__title {
+    font-size: 14vw;
+  }
+}
+.home .first-view .first-view__inner .first-view__title-area .first-view__copy {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 2;
+  font-weight: 300;
+}
+@media (max-width: 768px) {
+  .home .first-view .first-view__inner .first-view__title-area .first-view__copy {
+    margin-top: 1.8vw;
+    font-size: clamp(13px, 3vw, 24px);
+  }
+}
+.home .first-view .first-view__inner .first-view__title-area .button {
+  z-index: 1;
+  margin-top: 24px;
+  background: #fff;
+}
+@media (hover: hover) {
+  .home .first-view .first-view__inner .first-view__title-area .button:hover {
+    background: #0cae2a;
+  }
+}
+.home .first-view .first-view__inner .first-view__image {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.home .first-view .first-view__inner .first-view__image--1 {
+  height: auto;
+  width: 16vw;
+  top: 25%;
+  left: 80px;
+}
+.home .first-view .first-view__inner .first-view__image--2 {
+  height: auto;
+  width: 20vw;
+  top: 10%;
+  left: 30%;
+}
+.home .first-view .first-view__inner .first-view__image--3 {
+  height: auto;
+  width: 200px;
+  right: 80px;
+  bottom: 40px;
+}
+@media (max-width: 1200px) {
+  .home .first-view .first-view__inner .first-view__image--2 {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .home .first-view .first-view__inner .first-view__image--1 {
+    width: 25vw;
+    left: 20px;
+  }
+  .home .first-view .first-view__inner .first-view__image--3 {
+    width: 24vw;
+  }
+}
+@media (max-width: 768px) {
+  .home .first-view .first-view__inner .first-view__image--1 {
+    width: clamp(100px, 33vw, 160px);
+    top: auto;
+    bottom: 20px;
+    left: 20px;
+  }
+  .home .first-view .first-view__inner .first-view__image--3 {
+    width: 40vw;
+    bottom: -64px;
+    right: 20px;
+  }
+}
+@media (max-width: 400px) {
+  .home .first-view .first-view__inner .first-view__image--1 {
+    width: clamp(100px, 33vw, 110px);
+    left: 8px;
+  }
+  .home .first-view .first-view__inner .first-view__image--3 {
+    right: 8px;
+  }
+}
+.home .first-view .first-view__inner .first-view__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.home .first-view .first-view__inner .scroll {
+  position: absolute;
+  right: 50%;
+  bottom: 140px;
+  font-size: 16px;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+}
+.home .first-view .first-view__inner .scroll::before {
+  animation: scroll 2s infinite;
+  background-color: #0cae2a;
+  bottom: -108px;
+  content: "";
+  height: 100px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 1px;
+}
+@keyframes scroll {
+  0% {
+    transform: scale(1, 0);
+    transform-origin: 0 0;
+  }
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 0 0;
+  }
+  51% {
+    transform: scale(1, 1);
+    transform-origin: 0 100%;
+  }
+  100% {
+    transform: scale(1, 0);
+    transform-origin: 0 100%;
+  }
+}
+.home .front-news {
+  width: 100%;
+  padding: 40px;
+  background: #f6f6f6;
+}
+@media (max-width: 1024px) {
+  .home .front-news {
+    padding: 40px 20px;
+  }
+}
+.home .front-news .front-news__inner {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  display: flex;
+  gap: 64px;
+}
+@media (max-width: 1024px) {
+  .home .front-news .front-news__inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}
+.home .front-news .front-news__inner .front-news__title-area {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media (max-width: 1024px) {
+  .home .front-news .front-news__inner .front-news__title-area {
+    gap: 24px;
+    align-items: center;
+  }
+}
+.home .front-news .front-news__inner .front-news__title-area .front-news__title {
+  position: relative;
+  font-size: 24px;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.home .front-news .front-news__inner .front-news__title-area .front-news__title::after {
+  content: "";
+  position: absolute;
+  display: block;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background: #0cae2a;
+}
+@media (max-width: 1024px) {
+  .home .front-news .front-news__inner .front-news__title-area .front-news__title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 1024px) {
+  .home .front-news .front-news__inner .front-news__title-area .button {
+    margin-inline: auto;
+  }
+}
+@media (max-width: 1024px) {
+  .home .front-news .front-news__inner .front-news__list {
+    width: 100%;
+  }
+}
+.home .front-news .front-news__inner .front-news__list .front-news__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-block: 20px;
+  padding-inline: 16px;
+  border-bottom: 1px solid #d5d5d5;
+  transition: all 0.5s;
+}
+@media (max-width: 1024px) {
+  .home .front-news .front-news__inner .front-news__list .front-news__item {
+    padding-inline: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+@media (hover: hover) {
+  .home .front-news .front-news__inner .front-news__list .front-news__item:hover {
+    border-bottom: 1px solid #0cae2a;
+  }
+  .home .front-news .front-news__inner .front-news__list .front-news__item:hover .front-news__date {
+    color: #0cae2a;
+  }
+  .home .front-news .front-news__inner .front-news__list .front-news__item:hover .front-news__category {
+    border-color: #0cae2a;
+    color: #fff;
+    background: #0cae2a;
+  }
+  .home .front-news .front-news__inner .front-news__list .front-news__item:hover .front-news__title {
+    color: #0cae2a;
+  }
+}
+.home .front-news .front-news__inner .front-news__list .front-news__item .front-news__item__information {
+  display: contents;
+}
+@media (max-width: 1024px) {
+  .home .front-news .front-news__inner .front-news__list .front-news__item .front-news__item__information {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 12px;
+  }
+}
+.home .front-news .front-news__inner .front-news__list .front-news__item:first-child {
+  padding-top: 0;
+}
+.home .front-news .front-news__inner .front-news__list .front-news__item .front-news__date {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 80px;
+  font-size: 12px;
+  color: #8d8d8d;
+  transition: all 0.5s;
+}
+.home .front-news .front-news__inner .front-news__list .front-news__item .front-news__category {
+  flex-shrink: 0;
+  width: 120px;
+  height: 24px;
+  border-radius: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+  border: 1px solid #0cae2a;
+  transition: all 0.5s;
+}
+.home .front-news .front-news__inner .front-news__list .front-news__item .front-news__title {
+  width: 100%;
+  font-size: 14px;
+  line-height: 2;
+  transition: all 0.5s;
+}
+@media (max-width: 1024px) {
+  .home .front-news .front-news__inner .front-news__list .front-news__item .front-news__title {
+    font-size: clamp(16px, 3vw, 28px);
+  }
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+.post-type-archive-news .archive-news,
+.category .archive-news {
+  padding-block: 160px 80px;
+  padding-inline: 40px;
+}
+@media (max-width: 1024px) {
+  .post-type-archive-news .archive-news,
+  .category .archive-news {
+    padding-block: 100px 40px;
+    padding-inline: 20px;
+  }
+}
+.post-type-archive-news .archive-news .archive-news__inner,
+.category .archive-news .archive-news__inner {
+  width: 100%;
+  max-width: 900px;
+  margin-inline: auto;
+}
+.post-type-archive-news .archive-news .archive-news__inner .section-title,
+.category .archive-news .archive-news__inner .section-title {
+  text-align: center;
+}
+.post-type-archive-news .archive-news .archive-news__inner .section-title::after,
+.category .archive-news .archive-news__inner .section-title::after {
+  margin-top: 32px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #0cae2a;
+  margin-inline: auto;
+}
+@media (max-width: 1024px) {
+  .post-type-archive-news .archive-news .archive-news__inner .section-title::after,
+  .category .archive-news .archive-news__inner .section-title::after {
+    margin-top: 16px;
+  }
+}
+.post-type-archive-news .archive-news .archive-news__inner .archive-news__list,
+.category .archive-news .archive-news__inner .archive-news__list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item,
+.category .archive-news .archive-news__inner .archive-news__list .archive-news__item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-block: 40px;
+  padding-inline: 16px;
+  border-bottom: 1px solid #d5d5d5;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item:first-child,
+.category .archive-news .archive-news__inner .archive-news__list .archive-news__item:first-child {
+  border-top: 1px solid #d5d5d5;
+}
+@media (max-width: 1024px) {
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item {
+    padding-block: 24px;
+    padding-inline: 8px;
+  }
+}
+@media (hover: hover) {
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover {
+    background: rgba(12, 174, 42, 0.1);
+  }
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover .archive-news__item__category,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover .archive-news__item__category {
+    border-color: #0cae2a !important;
+    background: #0cae2a !important;
+    color: #fff !important;
+  }
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover .archive-news__item__date,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover .archive-news__item__date {
+    color: #0cae2a !important;
+  }
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover .archive-news__item__title,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover .archive-news__item__title {
+    color: #0cae2a !important;
+  }
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover .archive-news__item__excerpt,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item:hover .archive-news__item__excerpt {
+    color: #0cae2a !important;
+  }
+}
+.post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information,
+.category .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+@media (max-width: 1024px) {
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information {
+    width: -moz-fit-content;
+    width: fit-content;
+    flex-direction: row-reverse;
+  }
+}
+.post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information .archive-news__item__date,
+.category .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information .archive-news__item__date {
+  font-size: 12px;
+  color: #8d8d8d;
+  transition: all 0.5s;
+}
+.post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information .archive-news__item__category,
+.category .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information .archive-news__item__category {
+  flex-shrink: 0;
+  width: 120px;
+  height: 24px;
+  border-radius: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+  border: 1px solid #0cae2a;
+  transition: all 0.5s;
+  transition: all 0.5s;
+}
+@media (max-width: 1024px) {
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information .archive-news__item__category,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__information .archive-news__item__category {
+    background: #0cae2a;
+    color: #fff;
+    border: none;
+  }
+}
+.post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__title,
+.category .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__title {
+  margin-top: 16px;
+  font-size: clamp(14px, 2vw, 32px);
+  font-family: "EB Garamond", serif, "Noto Serif JP", serif;
+  transition: all 0.5s;
+}
+@media (max-width: 1024px) {
+  .post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__title,
+  .category .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__title {
+    font-size: clamp(16px, 5vw, 28px);
+    font-weight: 500;
+  }
+}
+.post-type-archive-news .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__excerpt,
+.category .archive-news .archive-news__inner .archive-news__list .archive-news__item .archive-news__item__excerpt {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #8d8d8d;
+  transition: all 0.5s;
+}
+.post-type-archive-news .archive-news .archive-news__inner .news-pagination,
+.category .archive-news .archive-news__inner .news-pagination {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.post-type-archive-news .archive-news .archive-news__inner .news-pagination .page-numbers,
+.category .archive-news .archive-news__inner .news-pagination .page-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #0cae2a;
+  font-family: "EB Garamond", serif;
+  font-size: 18px;
+  color: #0cae2a;
+  transition: all 0.5s;
+}
+.post-type-archive-news .archive-news .archive-news__inner .news-pagination .page-numbers.current,
+.category .archive-news .archive-news__inner .news-pagination .page-numbers.current {
+  pointer-events: none;
+  border-color: #0cae2a;
+  color: #fff;
+  background: #0cae2a;
+}
+@media (hover: hover) {
+  .post-type-archive-news .archive-news .archive-news__inner .news-pagination .page-numbers:hover,
+  .category .archive-news .archive-news__inner .news-pagination .page-numbers:hover {
+    border-color: #0cae2a;
+    color: #fff;
+    background: #0cae2a;
+  }
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+/* ===============================================
+   *  制作実績
+   =============================================== */
+.post-type-archive-works .works,
+.tax-works-category .works {
+  padding-top: 160px;
+}
+@media (max-width: 1024px) {
+  .post-type-archive-works .works,
+  .tax-works-category .works {
+    padding-top: 100px;
+  }
+}
+.post-type-archive-works .works .section-title::after,
+.tax-works-category .works .section-title::after {
+  margin-top: 32px;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #0cae2a;
+  margin-inline: auto;
+}
+@media (max-width: 1024px) {
+  .post-type-archive-works .works .section-title::after,
+  .tax-works-category .works .section-title::after {
+    margin-top: 16px;
+  }
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+.error404 .error-404 {
+  width: 100%;
+  height: calc(100vh - 158px);
+}
+@media (max-width: 768px) {
+  .error404 .error-404 {
+    height: auto;
+  }
+}
+.error404 .error-404 .error-404__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+@media (max-width: 768px) {
+  .error404 .error-404 .error-404__inner {
+    padding-block: 100px 40px;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .error404 .error-404 .error-404__inner .error-404__text-area {
+    text-align: center;
+  }
+}
+.error404 .error-404 .error-404__inner .error-404__text-area .error-404__title {
+  font-size: 8vw;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+  line-height: 1;
+}
+@media (max-width: 768px) {
+  .error404 .error-404 .error-404__inner .error-404__text-area .error-404__title {
+    font-size: 18vw;
+  }
+}
+.error404 .error-404 .error-404__inner .error-404__text-area .error-404__description {
+  font-size: 1.4vw;
+  font-family: "Noto Serif JP", serif;
+  color: #0cae2a;
+}
+@media (max-width: 768px) {
+  .error404 .error-404 .error-404__inner .error-404__text-area .error-404__description {
+    font-size: 3vw;
+  }
+}
+.error404 .error-404 .error-404__inner .error-404__text-area .button {
+  margin-top: 40px;
+}
+@media (max-width: 768px) {
+  .error404 .error-404 .error-404__inner .error-404__text-area .button {
+    margin-inline: auto;
+  }
+}
+.error404 .error-404 .error-404__inner .error-404__image {
+  height: 50%;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .error404 .error-404 .error-404__inner .error-404__image {
+    height: auto;
+    width: 30%;
+  }
+}
+.error404 .error-404 .error-404__inner .error-404__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+.page-contact .form-area {
+  padding-top: 160px;
+}
+@media (max-width: 1024px) {
+  .page-contact .form-area {
+    padding-top: 100px;
+  }
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+.page-privacy .privacy {
+  padding-inline: 40px;
+  padding-top: 160px;
+  padding-bottom: 80px;
+}
+@media (max-width: 1024px) {
+  .page-privacy .privacy {
+    padding-inline: 20px;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+}
+.page-privacy .privacy .privacy__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.page-privacy .privacy .privacy__inner .section-title {
+  align-items: center;
+  text-align: center;
+}
+.page-privacy .privacy .privacy__inner .section-title .section-title__en {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+}
+.page-privacy .privacy .privacy__inner .section-title .section-title__jp {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+}
+.page-privacy .privacy .privacy__inner .privacy__content-separator {
+  margin-block: 24px 40px;
+  width: 120px;
+  height: 1px;
+  background: #0cae2a;
+  margin-inline: auto;
+}
+@media (max-width: 768px) {
+  .page-privacy .privacy .privacy__inner .privacy__content-separator {
+    margin-block: 20px 32px;
+    width: 80px;
+  }
+}
+.page-privacy .privacy .privacy__content {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  line-height: 2;
+  color: #333;
+}
+.page-privacy .privacy .privacy__content p {
+  margin-top: 1.5rem;
+}
+.page-privacy .privacy .privacy__content p:first-child {
+  margin-top: 0;
+}
+.page-privacy .privacy .privacy__content h2 {
+  margin-top: 3rem;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-family: "EB Garamond", serif, "Noto Serif JP", serif;
+  color: #0cae2a;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.page-privacy .privacy .privacy__content h2:first-child {
+  margin-top: 0;
+}
+@media (max-width: 768px) {
+  .page-privacy .privacy .privacy__content h2 {
+    margin-top: 2.5rem;
+  }
+}
+.page-privacy .privacy .privacy__content .privacy__list {
+  margin-top: 1rem;
+  padding-left: 1.5em;
+  list-style-type: disc;
+}
+.page-privacy .privacy .privacy__content .privacy__list li {
+  margin-top: 0.75rem;
+  line-height: 2;
+}
+.page-privacy .privacy .privacy__content .privacy__list li:first-child {
+  margin-top: 0;
+}
+.page-privacy .privacy .privacy__content .privacy__list li::marker {
+  color: #0cae2a;
+}
+.page-privacy .privacy .privacy__content a {
+  color: #0cae2a;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-weight: 500;
+}
+@media (hover: hover) {
+  .page-privacy .privacy .privacy__content a:hover {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+@media (hover: none) {
+  .page-privacy .privacy .privacy__content a {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+.page-privacy .privacy .privacy__button-area {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .page-privacy .privacy .privacy__button-area {
+    margin-top: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .page-privacy .privacy .privacy__button-area .button {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+  }
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+.page-thanks .thanks {
+  width: 100%;
+  padding-inline: 40px;
+  height: calc(100vh - 158px);
+}
+@media (max-width: 768px) {
+  .page-thanks .thanks {
+    height: auto;
+    padding-inline: 20px;
+  }
+}
+.page-thanks .thanks .thanks__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+}
+@media (max-width: 768px) {
+  .page-thanks .thanks .thanks__inner {
+    padding-block: 100px 40px;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .page-thanks .thanks .thanks__inner .thanks__text-area {
+    text-align: center;
+  }
+}
+.page-thanks .thanks .thanks__inner .thanks__text-area .thanks__title {
+  font-size: 8vw;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+  line-height: 1;
+}
+@media (max-width: 768px) {
+  .page-thanks .thanks .thanks__inner .thanks__text-area .thanks__title {
+    font-size: 14vw;
+  }
+}
+.page-thanks .thanks .thanks__inner .thanks__text-area .thanks__description {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 2;
+  color: #333;
+}
+@media (max-width: 768px) {
+  .page-thanks .thanks .thanks__inner .thanks__text-area .thanks__description {
+    font-size: 14px;
+  }
+}
+.page-thanks .thanks .thanks__inner .thanks__text-area .thanks__description a {
+  color: #0cae2a;
+  font-weight: 500;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+@media (hover: hover) {
+  .page-thanks .thanks .thanks__inner .thanks__text-area .thanks__description a:hover {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+@media (hover: none) {
+  .page-thanks .thanks .thanks__inner .thanks__text-area .thanks__description a {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+.page-thanks .thanks .thanks__inner .thanks__text-area .button {
+  margin-top: 40px;
+}
+@media (max-width: 768px) {
+  .page-thanks .thanks .thanks__inner .thanks__text-area .button {
+    margin-inline: auto;
+  }
+}
+.page-thanks .thanks .thanks__inner .thanks__image {
+  height: 50%;
+  overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+  .page-thanks .thanks .thanks__inner .thanks__image {
+    height: auto;
+    width: 50%;
+    transform: translateX(-7%);
+  }
+}
+.page-thanks .thanks .thanks__inner .thanks__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+.single-news .single-news-section {
+  padding-inline: 40px;
+  margin-top: 160px;
+  padding-bottom: 80px;
+}
+@media (max-width: 1024px) {
+  .single-news .single-news-section {
+    padding-inline: 20px;
+    margin-top: 100px;
+    padding-bottom: 40px;
+  }
+}
+.single-news .single-news-section .single-news__inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.single-news .single-news-section .single-news__inner .single-news__back-button {
+  font-size: 14px;
+  font-family: "EB Garamond", serif;
+  color: #8d8d8d;
+  transition: all 0.5s;
+  line-height: 1;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 768px) {
+  .single-news .single-news-section .single-news__inner .single-news__back-button {
+    font-size: 14px;
+  }
+}
+.single-news .single-news-section .single-news__inner .single-news__back-button span {
+  display: inline-block;
+  transform: translateY(-1px);
+}
+@media (hover: hover) {
+  .single-news .single-news-section .single-news__inner .single-news__back-button:hover {
+    opacity: 0.7;
+  }
+}
+.single-news .single-news-section .single-news__inner .single-news__information {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+@media screen and (max-width: 768px) {
+  .single-news .single-news-section .single-news__inner .single-news__information {
+    margin-top: 40px;
+  }
+}
+.single-news .single-news-section .single-news__inner .single-news__information .single-news__date {
+  font-size: 14px;
+  color: #8d8d8d;
+}
+.single-news .single-news-section .single-news__inner .single-news__information .separator {
+  width: 1px;
+  height: 24px;
+  background: #8d8d8d;
+}
+.single-news .single-news-section .single-news__inner .single-news__information .single-news__category {
+  flex-shrink: 0;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-inline: 10px;
+  height: 28px;
+  border-radius: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+  background: #fff;
+  border: 1px solid #0cae2a;
+  transition: all 0.5s;
+}
+.single-news .single-news-section .single-news__inner .single-news__title {
+  margin-top: 20px;
+  font-size: clamp(16px, 4vw, 40px);
+  font-family: "EB Garamond", serif, "Noto Serif JP", serif;
+}
+@media screen and (max-width: 768px) {
+  .single-news .single-news-section .single-news__inner .single-news__title {
+    font-size: clamp(16px, 5vw, 32px);
+  }
+}
+.single-news .single-news-section .single-news__inner .single-news__content-separator {
+  margin-block: 24px 40px;
+  width: 120px;
+  height: 1px;
+  background: #0cae2a;
+  margin-inline: auto;
+}
+.single-news .single-news-section .single-news__content {
+  font-size: 16px;
+  line-height: 2;
+}
+@media screen and (max-width: 768px) {
+  .single-news .single-news-section .single-news__content {
+    font-size: 14px;
+  }
+}
+.single-news .single-news-section .single-news__content p {
+  margin-top: 24px;
+}
+.single-news .single-news-section .single-news__content p:first-child {
+  margin-top: 0;
+}
+.single-news .single-news-section .single-news__content h2 {
+  margin-top: 40px;
+  font-size: 24px;
+  font-family: "EB Garamond", serif, "Noto Serif JP", serif;
+  color: #0cae2a;
+}
+.single-news .single-news-section .single-news__content figure {
+  margin-top: 24px;
+  overflow: hidden;
+}
+.single-news .single-news-section .single-news__content figure img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.single-news .single-news-section .single-news__content a {
+  color: #0cae2a;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+@media (hover: hover) {
+  .single-news .single-news-section .single-news__content a:hover {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+@media (hover: none) {
+  .single-news .single-news-section .single-news__content a {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+.single-news .single-news-section .single-news__nav {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+@media screen and (max-width: 400px) {
+  .single-news .single-news-section .single-news__nav {
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+}
+.single-news .single-news-section .single-news__nav .single-news__nav-wrapper {
+  display: contents;
+}
+@media screen and (max-width: 400px) {
+  .single-news .single-news-section .single-news__nav .single-news__nav-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+  }
+}
+.single-news .single-news-section .single-news__nav .single-news__nav-link__prev,
+.single-news .single-news-section .single-news__nav .single-news__nav-link__next {
+  font-size: 16px;
+  font-family: "EB Garamond", serif;
+  color: #0cae2a;
+}
+.single-news .single-news-section .single-news__nav .single-news__nav-link__prev span,
+.single-news .single-news-section .single-news__nav .single-news__nav-link__next span {
+  display: inline-block;
+  transform: translateY(-1px);
+}
+@media (hover: hover) {
+  .single-news .single-news-section .single-news__nav .single-news__nav-link__prev:hover,
+  .single-news .single-news-section .single-news__nav .single-news__nav-link__next:hover {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+.single-news .single-news-section .single-news__nav .single-news__nav-link__prev.disabled,
+.single-news .single-news-section .single-news__nav .single-news__nav-link__next.disabled {
+  color: #d5d5d5;
+  cursor: default;
+  pointer-events: none;
+}
+@media (hover: none) {
+  .single-news .single-news-section .single-news__nav .single-news__nav-link__prev.disabled,
+  .single-news .single-news-section .single-news__nav .single-news__nav-link__next.disabled {
+    text-decoration: none;
+  }
+}
+@media screen and (min-width: 400px) {
+  .single-news .single-news-section .button--under440 {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  .single-news .single-news-section .button--over440 {
+    display: none;
+  }
+}
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+/* ===============================================
+ *  フォームエリア
+ =============================================== */
+.form-area {
+  width: 100%;
+  padding: 80px 40px;
+  background: #ededed;
+}
+@media (max-width: 1024px) {
+  .form-area {
+    padding: 40px 20px;
+  }
+}
+.form-area .section-title {
+  align-items: center;
+}
+.form-area .form__description {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 2;
+}
+.form-area .form__description a {
+  color: #0cae2a;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-weight: 500;
+}
+@media (hover: hover) {
+  .form-area .form__description a:hover {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+@media (hover: none) {
+  .form-area .form__description a {
+    text-decoration: underline;
+    text-decoration-color: #0cae2a;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+}
+.form-area .form__main-area {
+  margin-top: 80px;
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 0 10px 0 rgba(12, 174, 42, 0.1);
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .form-area .form__main-area {
+    margin-top: 40px;
+  }
+}
+.form-area .form__main-area .form__image {
+  height: auto;
+  width: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+@media (max-width: 1024px) {
+  .form-area .form__main-area .form__image {
+    display: none;
+  }
+}
+.form-area .form__main-area .form__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.form-area .form__main-area .form__form-area {
+  flex: 3;
+}
+
+/* ===============================================
+ *  フォーム
+ =============================================== */
+.wpcf7 {
+  width: 100%;
+  margin-inline: auto;
+  /* インナーコンテナ */
+  /* 各行のラッパー */
+  /* 見出し（ラベル）エリア */
+  /* 必須・任意バッジ */
+  /* 入力エリアのラッパー */
+  /* ==========================================================================
+        Input Elements Styling (タグ別の基本スタイル)
+  ========================================================================== */
+  /* テキスト入力系 (text, email, url, tel, password) */
+  /* テキストエリア固有 */
+  /* セレクトボックス - デフォルトスタイルへ戻す */
+  /* チェックボックスのラッパー (CF7が出力するspan) */
+  /* ラジオボタンのラッパー (CF7が出力するspan) */
+  /* チェックボックス・ラジオボタンのアイテムのラッパー (CF7が出力するspan) */
+  /* チェックボックス & ラジオボタン本体 */
+  /* 送信ボタン */
+}
+.wpcf7 * {
+  box-sizing: border-box;
+}
+.wpcf7 .wpcf7-form {
+  width: 100%;
+  padding: 40px;
+  margin-inline: auto;
+}
+@media (max-width: 1024px) {
+  .wpcf7 .wpcf7-form {
+    padding: 40px 20px;
+  }
+}
+.wpcf7 .contactFormInner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* 行間の余白 */
+}
+.wpcf7 .contactFormItem {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* 送信ボタンエリア用の修飾クラス */
+}
+.wpcf7 .contactFormItem .submitWrapper {
+  margin-top: 24px;
+  border-bottom: none;
+  align-items: center;
+  justify-content: center;
+}
+.wpcf7 .contactFormItem .submitWrapper .contactFormItemContent {
+  width: auto; /* ボタンの幅に合わせる */
+  flex: 0 0 auto;
+}
+.wpcf7 .contactFormItemTitle {
+  flex-shrink: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wpcf7 .contactFormItemRequired,
+.wpcf7 .contactFormItemOptional {
+  flex-shrink: 0;
+  width: 48px;
+  height: 24px;
+  font-size: 12px;
+  border-radius: 50vh;
+  line-height: 1;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wpcf7 .contactFormItemRequired {
+  border: 1px solid #0cae2a;
+  color: #0cae2a;
+}
+.wpcf7 .contactFormItemOptional {
+  border: 1px solid #8d8d8d;
+  color: #8d8d8d;
+}
+.wpcf7 .contactFormItemContent {
+  flex-grow: 1;
+  width: 100%;
+  position: relative;
+}
+.wpcf7 .contactFormItemContent .wpcf7-not-valid-tip {
+  font-size: 12px;
+  color: #e03131;
+  margin-top: 4px;
+  display: block;
+}
+.wpcf7 .wpcf7-form-control-wrap {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.wpcf7 input {
+  width: 100%;
+  box-sizing: border-box;
+  /* ラジオボタン・チェックボックス以外にappearance: noneを適用 */
+}
+.wpcf7 input:not([type=radio]):not([type=checkbox]) {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.wpcf7 input[type=text],
+.wpcf7 input[type=email],
+.wpcf7 input[type=url],
+.wpcf7 input[type=tel],
+.wpcf7 input[type=password],
+.wpcf7 textarea,
+.wpcf7 select {
+  width: 100%;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; /* ブラウザ標準スタイルをリセット */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.wpcf7 input[type=text]::-moz-placeholder, .wpcf7 input[type=email]::-moz-placeholder, .wpcf7 input[type=url]::-moz-placeholder, .wpcf7 input[type=tel]::-moz-placeholder, .wpcf7 input[type=password]::-moz-placeholder, .wpcf7 textarea::-moz-placeholder, .wpcf7 select::-moz-placeholder {
+  color: #adb5bd;
+}
+.wpcf7 input[type=text]::placeholder,
+.wpcf7 input[type=email]::placeholder,
+.wpcf7 input[type=url]::placeholder,
+.wpcf7 input[type=tel]::placeholder,
+.wpcf7 input[type=password]::placeholder,
+.wpcf7 textarea::placeholder,
+.wpcf7 select::placeholder {
+  color: #adb5bd;
+}
+.wpcf7 input[type=text]:focus,
+.wpcf7 input[type=email]:focus,
+.wpcf7 input[type=url]:focus,
+.wpcf7 input[type=tel]:focus,
+.wpcf7 input[type=password]:focus,
+.wpcf7 textarea:focus,
+.wpcf7 select:focus {
+  outline: none;
+  border-bottom-color: #0cae2a;
+}
+.wpcf7 textarea {
+  min-height: 160px;
+  resize: vertical; /* 縦方向のみリサイズ許可 */
+  letter-spacing: 0.05em;
+  font-size: 14px;
+}
+.wpcf7 select {
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto; /* OS標準の矢印を表示 */
+  cursor: pointer;
+}
+.wpcf7 .wpcf7-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+}
+.wpcf7 .wpcf7-radio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 12px;
+  -moz-column-gap: 32px;
+       column-gap: 32px;
+  cursor: pointer;
+}
+.wpcf7 .wpcf7-list-item {
+  margin-left: 0;
+}
+.wpcf7 .wpcf7-list-item label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.wpcf7 input[type=checkbox],
+.wpcf7 input[type=radio] {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: #0cae2a;
+  /* 標準の外観を保持（重要！） */
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+  /* カスタムスタイルは最小限に */
+  flex-shrink: 0; /* サイズ固定 */
+}
+.wpcf7 .submitWrapper {
+  position: relative;
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  padding: 0 20px;
+  height: 44px;
+  border-radius: 0vh;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  font-weight: 400 !important;
+  font-family: "EB Garamond", serif !important;
+  background: transparent;
+  color: #0cae2a;
+  border: 1px solid #0cae2a;
+  transition: all 0.5s;
+}
+.wpcf7 .submitWrapper:focus-within {
+  border-radius: 24px;
+  background: #0cae2a !important;
+  color: #fff !important;
+}
+@media (hover: none) {
+  .wpcf7 .submitWrapper {
+    border-radius: 24px;
+    background: #0cae2a !important;
+    color: #fff !important;
+  }
+  .wpcf7 .submitWrapper:active {
+    opacity: 0.7;
+    scale: 0.98;
+  }
+}
+@media (max-width: 1024px) {
+  .wpcf7 .submitWrapper {
+    margin-inline: auto;
+  }
+}
+@media (hover: hover) {
+  .wpcf7 .submitWrapper:hover {
+    border-radius: 24px;
+    background: #0cae2a;
+    color: #fff;
+  }
+  .wpcf7 .submitWrapper:hover .material-symbols-rounded {
+    transform: translateX(10px);
+  }
+}
+.wpcf7 .submitWrapper input[type=submit],
+.wpcf7 .submitWrapper button[type=submit] {
+  letter-spacing: 0.1em;
+}
+.wpcf7 .submitWrapper .contactFormItemButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  opacity: 0;
+}
+.wpcf7 .submitWrapper .contactFormItemButton input {
+  height: 100%;
+  width: 100%;
+}
+.wpcf7 .submitWrapper .material-symbols-rounded {
+  font-size: 24px;
+  font-weight: 300;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateX(0);
+}
+.wpcf7 .submitWrapper:active {
+  transform: translateY(1px);
+}
+.wpcf7 .submitWrapper.submitting {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+/* ===============================================
+ *  メッセージ
+ =============================================== */
+.wpcf7-response-output {
+  display: block;
+  font-size: 14px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-top: 16px !important;
+  color: #333;
+  border: none !important;
+  padding: 0;
+}
+
+.invalid .wpcf7-response-output {
+  color: #e03131;
+}
+
+.wpcf7-spinner {
+  display: none !important;
+}/*# sourceMappingURL=style.css.map */

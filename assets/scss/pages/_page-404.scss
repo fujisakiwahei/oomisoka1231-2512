@@ -1,0 +1,78 @@
+@use "../reset";
+@use "../var" as *;
+
+.error404 {
+  .error-404 {
+    width: 100%;
+    height: calc(100vh - 158px);
+    @media (max-width: $spBreakPoint) {
+      height: auto;
+    }
+
+    .error-404__inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 64px;
+
+      @media (max-width: $spBreakPoint) {
+        padding-block: 100px 40px;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .error-404__text-area {
+        @media (max-width: $spBreakPoint) {
+          text-align: center;
+        }
+
+        .error-404__title {
+          font-size: 8vw;
+          font-family: $fontEn;
+          color: $colorGreen;
+          line-height: 1;
+
+          @media (max-width: $spBreakPoint) {
+            font-size: 18vw;
+          }
+        }
+
+        .error-404__description {
+          font-size: 1.4vw;
+          font-family: $fontSerif;
+          color: $colorGreen;
+
+          @media (max-width: $spBreakPoint) {
+            font-size: 3vw;
+          }
+        }
+
+        .button {
+          margin-top: 40px;
+
+          @media (max-width: $spBreakPoint) {
+            margin-inline: auto;
+          }
+        }
+      }
+
+      .error-404__image {
+        height: 50%;
+        overflow: hidden;
+
+        @media screen and (max-width: $spBreakPoint) {
+          height: auto;
+          width: 30%;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "../reset";
+@use "../var" as *;
+
+.page-contact {
+  .form-area {
+    padding-top: 160px;
+    @media (max-width: $tabletBreakPoint) {
+      padding-top: 100px;
+    }
+  }
+}

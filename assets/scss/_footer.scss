@@ -1,0 +1,116 @@
+@use "./reset";
+@use "./var" as *;
+
+footer {
+  width: 100%;
+  padding-inline: 40px;
+  background-color: $colorGreenDark;
+
+  .footer__inner {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-block: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    color: $colorWhite;
+
+    .footer__name-area {
+      line-height: 1;
+      .footer__name-area__name {
+        font-size: 4vw;
+        font-family: $fontEn;
+        transition: all 0.3s;
+
+        @media (hover: hover) {
+          &:hover {
+            opacity: 0.7;
+            scale: 0.98;
+          }
+        }
+
+        @media (max-width: $spBreakPoint) {
+          font-size: 10vw;
+        }
+      }
+      .footer__name-area__copyright {
+        margin-top: 8px;
+        font-size: 12px;
+        color: $colorGrayLight;
+
+        @media (max-width: $spBreakPoint) {
+          font-size: 2.5vw;
+        }
+      }
+      .footer__name-area__privacy-policy-link {
+        display: inline-block;
+        margin-top: 16px;
+        font-size: 12px;
+        color: $colorGrayLight;
+        transition: all 0.3s;
+
+        @media (hover: hover) {
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+    .footer__nav {
+      .footer__nav-list {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        column-gap: 24px;
+        row-gap: 12px;
+
+        .footer__nav-item {
+          .footer__nav-link {
+            font-size: 16px;
+            font-family: $fontEn;
+            color: $colorWhite;
+            @media (hover: hover) {
+              &:hover {
+                color: $colorGreen;
+                text-decoration: underline;
+                text-decoration-color: $colorGreen;
+                text-decoration-thickness: 1px;
+                text-underline-offset: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .footer__sns-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+
+      .footer__sns-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        transition: all 0.3s;
+
+        @media (hover: hover) {
+          &:hover {
+            opacity: 0.7;
+            scale: 0.95;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}

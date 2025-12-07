@@ -1,0 +1,184 @@
+@use "../reset";
+@use "../var" as *;
+
+.post-type-archive-news,
+.category {
+  .archive-news {
+    padding-block: 160px 80px;
+    padding-inline: 40px;
+
+    @media (max-width: $tabletBreakPoint) {
+      padding-block: 100px 40px;
+      padding-inline: 20px;
+    }
+
+    .archive-news__inner {
+      width: 100%;
+      max-width: 900px;
+      margin-inline: auto;
+
+      .section-title {
+        text-align: center;
+
+        &::after {
+          margin-top: 32px;
+          content: "";
+          display: block;
+          width: 60px;
+          height: 1px;
+          background: $colorGreen;
+          margin-inline: auto;
+
+          @media (max-width: $tabletBreakPoint) {
+            margin-top: 16px;
+          }
+        }
+      }
+
+      .archive-news__list {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+
+        .archive-news__item {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          padding-block: 40px;
+          padding-inline: 16px;
+          border-bottom: 1px solid $colorGray;
+          transition: all 1s $easeOutCubic;
+
+          &:first-child {
+            border-top: 1px solid $colorGray;
+          }
+
+          @media (max-width: $tabletBreakPoint) {
+            padding-block: 24px;
+            padding-inline: 8px;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              background: rgba($colorGreen, 0.1);
+
+              .archive-news__item__category {
+                border-color: $colorGreen !important;
+                background: $colorGreen !important;
+                color: $colorWhite !important;
+              }
+
+              .archive-news__item__date {
+                color: $colorGreen !important;
+              }
+
+              .archive-news__item__title {
+                color: $colorGreen !important;
+              }
+
+              .archive-news__item__excerpt {
+                color: $colorGreen !important;
+              }
+            }
+          }
+
+          .archive-news__item__information {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            @media (max-width: $tabletBreakPoint) {
+              width: fit-content;
+              flex-direction: row-reverse;
+            }
+
+            .archive-news__item__date {
+              font-size: 12px;
+              color: $colorGrayDark;
+              transition: all 0.5s;
+            }
+
+            .archive-news__item__category {
+              flex-shrink: 0;
+              width: 120px;
+              height: 24px;
+              border-radius: 50vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 12px;
+              font-weight: 500;
+              font-family: $fontEn;
+              color: $colorGreen;
+              border: 1px solid $colorGreen;
+              transition: all 0.5s;
+              transition: all 0.5s;
+
+              @media (max-width: $tabletBreakPoint) {
+                background: $colorGreen;
+                color: $colorWhite;
+                border: none;
+              }
+            }
+          }
+
+          .archive-news__item__title {
+            margin-top: 16px;
+            font-size: clamp(14px, 2vw, 32px);
+            font-family: $fontEn, $fontSerif;
+            transition: all 0.5s;
+
+            @media (max-width: $tabletBreakPoint) {
+              font-size: clamp(16px, 5vw, 28px);
+              font-weight: 500;
+            }
+          }
+
+          .archive-news__item__excerpt {
+            margin-top: 8px;
+            font-size: 14px;
+            line-height: 1.8;
+            color: $colorGrayDark;
+            transition: all 0.5s;
+          }
+        }
+      }
+
+      .news-pagination {
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+
+        .page-numbers {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          border: 1px solid $colorGreen;
+          font-family: $fontEn;
+          font-size: 18px;
+          color: $colorGreen;
+          transition: all 0.5s;
+
+          &.current {
+            pointer-events: none;
+            border-color: $colorGreen;
+            color: $colorWhite;
+            background: $colorGreen;
+          }
+
+          @media (hover: hover) {
+            &:hover {
+              border-color: $colorGreen;
+              color: $colorWhite;
+              background: $colorGreen;
+            }
+          }
+        }
+      }
+    }
+  }
+}

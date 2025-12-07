@@ -1,0 +1,207 @@
+@use "./reset";
+@use "./var" as *;
+
+header {
+  z-index: 100;
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  height: 60px;
+  border-radius: 50vh;
+  background-color: rgba($colorWhite, 0.5);
+  backdrop-filter: blur(10px);
+  transition: all 0.6s $easeInOutCirc;
+
+  @media (max-width: $tabletBreakPoint) {
+    width: calc(100% - 40px);
+    top: 12px;
+  }
+
+  .header__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-inline: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.8s $easeInOutCirc;
+
+    @media (max-width: $tabletBreakPoint) {
+      padding-inline: 20px;
+    }
+
+    @media (max-width: $spBreakPoint) {
+      align-items: start;
+      padding-top: 12px;
+    }
+
+    .header__inner-logo-button-wrapper {
+      display: contents;
+
+      @media (max-width: $spBreakPoint) {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .header__logo {
+      font-family: $fontEn;
+      font-size: 32px;
+      @media (hover: hover) {
+        &:hover {
+          color: $colorGreen;
+        }
+      }
+
+      @media (max-width: $tabletBreakPoint) {
+        font-size: clamp(16px, 6vw, 28px);
+      }
+    }
+
+    .header__nav-button {
+      display: none;
+
+      @media (max-width: $spBreakPoint) {
+        margin-top: 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      span {
+        width: 20px;
+        height: 2px;
+        border-radius: 50vh;
+        background: $colorGreenDark;
+        transform: translateX(0);
+        transition: all 0.6s $easeOutCubic;
+      }
+      .header__nav-button__menu {
+        margin-top: 2px;
+        font-size: 10px;
+        font-family: $fontEn;
+        font-weight: 500;
+        line-height: 1;
+        color: $colorGreenDark;
+      }
+    }
+
+    .header__nav {
+      @media (max-width: $spBreakPoint) {
+        display: none;
+      }
+      .header__nav-list {
+        display: flex;
+        gap: 20px;
+
+        .header__nav-item {
+          .header__nav-link {
+            font-size: 16px;
+            font-family: $fontEn;
+            font-weight: 500;
+            color: $colorText;
+            @media (hover: hover) {
+              &:hover {
+                color: $colorGreen;
+                text-decoration: underline;
+                text-decoration-color: $colorGreen;
+                text-decoration-thickness: 1px;
+                text-underline-offset: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header__nav-global {
+    position: absolute;
+    top: 120px;
+    left: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s $easeInOutCirc;
+
+    .header__nav-global-list {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: center;
+      gap: clamp(20px, 6vw, 40px);
+
+      .header__nav-global-item {
+        .header__nav-global-link {
+          @media (max-width: $spBreakPoint) {
+            font-size: clamp(16px, 8vw, 32px);
+            font-family: $fontEn;
+            font-weight: 500;
+            color: $colorGreenDark;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-open {
+    height: calc(100vh - 24px);
+    width: calc(100% - 24px);
+    border-radius: 16px;
+
+    .header__inner {
+      .header__nav-button {
+        span {
+          &:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+          }
+          &:nth-child(2) {
+            transform: translateX(50%);
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            transform: translateY(-4px) rotate(-45deg);
+          }
+        }
+      }
+    }
+
+    .header__nav-global {
+      @media (max-width: $spBreakPoint) {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  .header__nav-global-image {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s $easeInOutCirc;
+    pointer-events: none;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 60vw;
+    height: auto;
+
+    &.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}

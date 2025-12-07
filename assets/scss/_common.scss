@@ -1,0 +1,489 @@
+@use "./reset";
+@use "./var" as *;
+
+// フォント
+* {
+  font-feature-settings: "palt";
+}
+
+body {
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Noto Sans JP", sans-serif;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  color: $colorText;
+}
+
+main {
+  position: relative;
+}
+
+/* ===============================================
+     aタグ
+  =============================================== */
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* ===============================================
+     セクション
+  =============================================== */
+
+/* ===============================================
+     セクションタイトル
+  =============================================== */
+.section-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .section-title__en {
+    font-size: 40px;
+    line-height: 1;
+    font-family: $fontEn;
+    color: $colorGreen;
+    text-transform: uppercase;
+  }
+
+  .section-title__jp {
+    font-size: 14px;
+    color: $colorGrayDark;
+  }
+}
+
+/* ===============================================
+     ページタイトル
+  =============================================== */
+
+/* ===============================================
+       ボタン
+  =============================================== */
+.button {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  border-radius: 0vh;
+  font-size: 16px;
+  font-family: $fontEn;
+  background: transparent;
+  color: $colorGreen;
+  border: 1px solid $colorGreen;
+  transition: all 0.5s;
+
+  @media (hover: hover) {
+    &:hover {
+      border-radius: 24px;
+      background: $colorGreen;
+      color: $colorWhite;
+    }
+  }
+
+  @media (hover: none) {
+    border-radius: 24px;
+    background: $colorGreen !important ;
+    color: $colorWhite !important;
+
+    &:active {
+      opacity: 0.7;
+      scale: 0.98;
+    }
+  }
+
+  .material-symbols-rounded {
+    font-size: 20px;
+    font-weight: 300;
+  }
+}
+
+/* ===============================================
+       改行
+  =============================================== */
+/* ===============================================
+   *  デバイスサイズに応じた表示切り替え
+  =============================================== */
+.pc-only {
+  @media screen and (max-width: $tabletBreakPoint) {
+    display: none;
+  }
+}
+
+.under-tablet-only {
+  @media screen and (min-width: $tabletBreakPoint) {
+    display: none;
+  }
+}
+
+.over-tablet-only {
+  @media screen and (min-width: $tabletBreakPoint) {
+    display: none;
+  }
+}
+
+.sp-only {
+  @media screen and (min-width: $spBreakPoint) {
+    display: none;
+  }
+}
+
+/* ===============================================
+       グローバルナビゲーション
+  =============================================== */
+
+/* ===============================================
+   *  制作実績
+   =============================================== */
+.works {
+  position: relative;
+  width: 100%;
+  padding: 80px 40px;
+  background: $colorWhite;
+  overflow-x: hidden;
+
+  @media (max-width: $tabletBreakPoint) {
+    padding: 40px 20px;
+  }
+
+  .works__deco-circle {
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+    top: 40px;
+    right: 80px;
+    width: 300px;
+    height: 300px;
+
+    @media (max-width: $spBreakPoint) {
+      top: 20px;
+      right: 0;
+      width: 200px;
+      height: 200px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .works__deco-star {
+    z-index: 1;
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+
+    &--1 {
+      transform: translateX(-25vw);
+    }
+    &--2 {
+      bottom: 80px;
+      transform: translateX(-15vw);
+    }
+    &--3 {
+      bottom: 120px;
+      transform: translateX(25vw);
+    }
+  }
+
+  .works__inner {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    margin-inline: auto;
+
+    .section-title {
+      align-items: center;
+
+      // .section-title__en {
+      // }
+      // .section-title__jp {
+      // }
+    }
+  }
+  .works__list {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: start;
+
+    @media (max-width: $tabletBreakPoint) {
+    }
+
+    .works__item {
+      width: calc((100% / 3) - (40px * 2 / 3));
+      border-radius: 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      @media (max-width: $tabletBreakPoint) {
+        width: calc((100% / 2) - (40px * 2 / 2));
+        flex-direction: column;
+        border: 1px solid $colorGreenDark;
+      }
+
+      @media (max-width: $spBreakPoint) {
+        width: 100%;
+      }
+
+      .works__image {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: $colorWhite;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    .works__text-area {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba($colorGreenDark, 0.93);
+      color: $colorWhite;
+      opacity: 0;
+      transition: all 0.5s;
+
+      @media (max-width: $tabletBreakPoint) {
+        position: relative;
+        padding: 20px;
+        opacity: 1;
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          opacity: 1;
+
+          .works__title {
+            margin-bottom: 0px;
+          }
+          .works__information {
+            margin-bottom: 0px;
+          }
+          .works__description-title {
+            margin-bottom: 0px;
+          }
+          .works__description {
+            margin-bottom: 0px;
+          }
+        }
+      }
+
+      .works__title {
+        font-size: 24px;
+        font-family: $fontEn, $fontSerif;
+        transition: all 0.5s $easeOutQuint;
+      }
+      .works__information {
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        color: #a9a9a9;
+        transition: all 0.5s $easeOutQuint;
+        margin-bottom: 10px;
+
+        @media (max-width: $tabletBreakPoint) {
+          margin-bottom: 0px;
+        }
+      }
+      .works__description-title {
+        margin-top: 40px;
+        font-size: 14px;
+        line-height: 1;
+        font-family: $fontEn;
+        color: $colorGrayLight;
+        transition: all 0.5s $easeOutQuint;
+        margin-bottom: 20px;
+
+        @media (max-width: $tabletBreakPoint) {
+          margin-bottom: 0px;
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          margin-top: 16px;
+          margin-inline: auto;
+          bottom: -8px;
+          left: 0;
+          width: 40px;
+          height: 1px;
+          background: rgba($colorWhite, 0.7);
+        }
+      }
+
+      .works__description {
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 2;
+        font-weight: 300;
+        color: $colorGrayLight;
+        transition: all 0.5s $easeOutQuint;
+        margin-bottom: 10px;
+
+        @media (max-width: $tabletBreakPoint) {
+          margin-bottom: 0px;
+        }
+      }
+    }
+  }
+
+  .button--view-works {
+    margin-top: 80px;
+    margin-inline: auto;
+
+    @media (max-width: $tabletBreakPoint) {
+      margin-top: 40px;
+    }
+  }
+
+  .button--works-link {
+    margin-top: 20px;
+    background: $colorWhite;
+    color: $colorGreenDark;
+    border: none;
+
+    @media (hover: none) {
+      border-radius: 24px;
+      background: $colorWhite !important ;
+      color: $colorGreenDark !important;
+
+      &:active {
+        opacity: 0.7;
+        scale: 0.98;
+      }
+    }
+  }
+
+  /* アイコン回転バウンスアニメーション */
+  @keyframes bounceRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(50deg);
+    }
+    40% {
+      transform: rotate(-40deg);
+    }
+    60% {
+      transform: rotate(30deg);
+    }
+    75% {
+      transform: rotate(-20deg);
+    }
+    90% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
+
+/* ===============================================
+ *  カテゴリーリスト
+ =============================================== */
+.archive-news__category-list,
+.works__category-list {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+
+  @media (max-width: $spBreakPoint) {
+    margin-top: 24px;
+    gap: 12px;
+  }
+
+  .archive-news__category-item,
+  .works__category-item {
+    flex-shrink: 0;
+    width: fit-content;
+    padding-inline: 16px;
+    height: 32px;
+    border-radius: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: $fontEn;
+    color: $colorGreen;
+    background: $colorWhite;
+    border: 1px solid $colorGreen;
+    transition: all 0.5s;
+
+    @media (max-width: $spBreakPoint) {
+      font-size: 14px;
+      padding-inline: 10px;
+      height: 28px;
+    }
+
+    &.is-active {
+      pointer-events: none;
+      border-color: $colorGreen;
+      color: $colorWhite;
+      background: $colorGreen;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: $colorGreen;
+        color: $colorWhite;
+        background: $colorGreen;
+      }
+    }
+  }
+}
+
+/* ===============================================
+ *  制作実績へのボタン
+ =============================================== */
+.button--view-works {
+  .material-symbols-rounded {
+    transform: rotate(0deg);
+    transform-origin: top center;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      .material-symbols-rounded {
+        animation: bounceRotate 1s $easeInOutCubic forwards;
+      }
+    }
+  }
+}
+
+/* ===============================================
+ *  GSAPでふわっと
+ =============================================== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px); /* 下30px */
+  transition: all 1s $easeOutCubic;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/*
+Theme Name: My Awesome Theme  // テーマ名
+Author: Fujisaki Wahei
+Description: 合同会社SakiのHPリニューアル
+Version: 1.0
+*/
+
+// 個別ファイル読み込み ベース
+@use "./reset";
+@use "./common";
+@use "./var";
+
+// 個別ファイル読み込み 固定
+@use "./header";
+@use "./footer";
+@use "./pages/front";
+
+// 個別ファイル読み込み 追加
+@use "./pages/archive-news";
+@use "./pages/archive-works";
+@use "./pages/page-404";
+@use "./pages/page-about";
+@use "./pages/page-contact";
+@use "./pages/page-privacy";
+@use "./pages/page-thanks";
+@use "./pages/single-news";
+@use "./pages/form";

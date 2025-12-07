@@ -1,0 +1,418 @@
+@use "../reset";
+@use "../var" as *;
+
+/* ===============================================
+ *  フォームエリア
+ =============================================== */
+.form-area {
+  width: 100%;
+  padding: 80px 40px;
+  background: $colorGrayLight;
+
+  @media (max-width: $tabletBreakPoint) {
+    padding: 40px 20px;
+  }
+
+  .section-title {
+    align-items: center;
+  }
+  .form__description {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 2;
+
+    a {
+      color: $colorGreen;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      font-weight: 500;
+
+      @media (hover: hover) {
+        &:hover {
+          text-decoration: underline;
+          text-decoration-color: $colorGreen;
+          text-decoration-thickness: 1px;
+          text-underline-offset: 4px;
+        }
+      }
+
+      @media (hover: none) {
+        text-decoration: underline;
+        text-decoration-color: $colorGreen;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 4px;
+      }
+    }
+  }
+
+  .form__main-area {
+    margin-top: 80px;
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: $colorWhite;
+    border-radius: 16px;
+    box-shadow: 0 0 10px 0 rgba($colorGreen, 0.1);
+    overflow: hidden;
+
+    @media (max-width: $tabletBreakPoint) {
+      margin-top: 40px;
+    }
+
+    .form__image {
+      height: auto;
+      // max-height: 734px;
+      width: 50%;
+      flex-shrink: 0;
+      overflow: hidden;
+
+      @media (max-width: $tabletBreakPoint) {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .form__form-area {
+      flex: 3;
+    }
+  }
+}
+
+/* ===============================================
+ *  フォーム
+ =============================================== */
+
+.wpcf7 {
+  width: 100%;
+  margin-inline: auto;
+
+  & * {
+    box-sizing: border-box;
+  }
+
+  .wpcf7-form {
+    width: 100%;
+    padding: 40px;
+    margin-inline: auto;
+
+    @media (max-width: $tabletBreakPoint) {
+      padding: 40px 20px;
+    }
+  }
+
+  /* インナーコンテナ */
+  .contactFormInner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px; /* 行間の余白 */
+  }
+
+  /* 各行のラッパー */
+  .contactFormItem {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    /* 送信ボタンエリア用の修飾クラス */
+    .submitWrapper {
+      margin-top: 24px;
+      border-bottom: none;
+      align-items: center;
+      justify-content: center;
+
+      .contactFormItemContent {
+        width: auto; /* ボタンの幅に合わせる */
+        flex: 0 0 auto;
+      }
+    }
+  }
+
+  /* 見出し（ラベル）エリア */
+  .contactFormItemTitle {
+    flex-shrink: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* 必須・任意バッジ */
+  .contactFormItemRequired,
+  .contactFormItemOptional {
+    flex-shrink: 0;
+    width: 48px;
+    height: 24px;
+    font-size: 12px;
+    border-radius: 50vh;
+    line-height: 1;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contactFormItemRequired {
+    border: 1px solid $colorGreen;
+    color: $colorGreen;
+  }
+
+  .contactFormItemOptional {
+    border: 1px solid $colorGrayDark;
+    color: $colorGrayDark;
+  }
+
+  /* 入力エリアのラッパー */
+  .contactFormItemContent {
+    flex-grow: 1;
+    width: 100%;
+    position: relative;
+
+    .wpcf7-not-valid-tip {
+      font-size: 12px;
+      color: #e03131;
+      margin-top: 4px;
+      display: block;
+    }
+  }
+
+  .wpcf7-form-control-wrap {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ==========================================================================
+      Input Elements Styling (タグ別の基本スタイル)
+========================================================================== */
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+
+    /* ラジオボタン・チェックボックス以外にappearance: noneを適用 */
+    &:not([type="radio"]):not([type="checkbox"]) {
+      appearance: none;
+    }
+  }
+
+  /* テキスト入力系 (text, email, url, tel, password) */
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="tel"],
+  input[type="password"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    appearance: none; /* ブラウザ標準スタイルをリセット */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: #adb5bd;
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom-color: $colorGreen;
+    }
+  }
+
+  /* テキストエリア固有 */
+  textarea {
+    min-height: 160px;
+    resize: vertical; /* 縦方向のみリサイズ許可 */
+    letter-spacing: 0.05em;
+    font-size: 14px;
+  }
+
+  /* セレクトボックス - デフォルトスタイルへ戻す */
+  select {
+    appearance: auto; /* OS標準の矢印を表示 */
+    cursor: pointer;
+  }
+
+  /* チェックボックスのラッパー (CF7が出力するspan) */
+  .wpcf7-checkbox {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+  }
+
+  /* ラジオボタンのラッパー (CF7が出力するspan) */
+  .wpcf7-radio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 12px;
+    column-gap: 32px;
+    cursor: pointer;
+  }
+
+  /* チェックボックス・ラジオボタンのアイテムのラッパー (CF7が出力するspan) */
+  .wpcf7-list-item {
+    margin-left: 0;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
+
+  /* チェックボックス & ラジオボタン本体 */
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: $colorGreen;
+
+    /* 標準の外観を保持（重要！） */
+    appearance: auto;
+
+    /* カスタムスタイルは最小限に */
+    flex-shrink: 0; /* サイズ固定 */
+  }
+
+  /* 送信ボタン */
+  .submitWrapper {
+    position: relative;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0 20px;
+    height: 44px;
+    border-radius: 0vh;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    font-weight: 400 !important;
+    font-family: $fontEn !important;
+    background: transparent;
+    color: $colorGreen;
+    border: 1px solid $colorGreen;
+    transition: all 0.5s;
+
+    // ★ フォーカススタイル（キーボード操作用）
+    &:focus-within {
+      border-radius: 24px;
+      background: $colorGreen !important ;
+      color: $colorWhite !important;
+    }
+
+    @media (hover: none) {
+      border-radius: 24px;
+      background: $colorGreen !important ;
+      color: $colorWhite !important;
+
+      &:active {
+        opacity: 0.7;
+        scale: 0.98;
+      }
+    }
+
+    @media (max-width: $tabletBreakPoint) {
+      margin-inline: auto;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        border-radius: 24px;
+        background: $colorGreen;
+        color: $colorWhite;
+
+        .material-symbols-rounded {
+          transform: translateX(10px);
+        }
+      }
+    }
+
+    input[type="submit"],
+    button[type="submit"] {
+      letter-spacing: 0.1em;
+    }
+
+    .contactFormItemButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      opacity: 0;
+
+      input {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .material-symbols-rounded {
+      font-size: 24px;
+      font-weight: 300;
+      transition: all 0.5s $easeOutQuad;
+      transform: translateX(0);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &.submitting {
+      opacity: 0.7;
+      cursor: wait;
+    }
+  }
+}
+
+/* ===============================================
+ *  メッセージ
+ =============================================== */
+.wpcf7-response-output {
+  display: block;
+  font-size: 14px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-top: 16px !important;
+  color: #333;
+  border: none !important;
+  padding: 0;
+}
+
+.invalid {
+  .wpcf7-response-output {
+    color: #e03131;
+  }
+}
+
+.wpcf7-spinner {
+  display: none !important;
+}

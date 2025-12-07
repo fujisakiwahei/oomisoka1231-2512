@@ -1,0 +1,31 @@
+@use "../reset";
+@use "../var" as *;
+
+/* ===============================================
+   *  制作実績
+   =============================================== */
+.post-type-archive-works,
+.tax-works-category {
+  .works {
+    padding-top: 160px;
+    @media (max-width: $tabletBreakPoint) {
+      padding-top: 100px;
+    }
+
+    .section-title {
+      &::after {
+        margin-top: 32px;
+        content: "";
+        display: block;
+        width: 60px;
+        height: 1px;
+        background: $colorGreen;
+        margin-inline: auto;
+
+        @media (max-width: $tabletBreakPoint) {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}
