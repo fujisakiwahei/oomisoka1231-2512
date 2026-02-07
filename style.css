@@ -169,17 +169,17 @@ select {
 
 /* buttonとinput[type="button"]などにカーソルをポインターに */
 button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
+input[type=button],
+input[type=submit],
+input[type=reset] {
   cursor: pointer;
 }
 
 /* iOSでの内側の影を削除 */
-input[type="text"],
-input[type="email"],
-input[type="search"],
-input[type="password"],
+input[type=text],
+input[type=email],
+input[type=search],
+input[type=password],
 textarea {
   -webkit-appearance: none;
 }
@@ -363,7 +363,7 @@ a {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 .works .works__deco-star {
   z-index: 1;
@@ -429,7 +429,7 @@ a {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .works .works__list .works__text-area {
   position: absolute;
@@ -692,7 +692,7 @@ header {
   border-radius: 50vh;
   background-color: rgba(255, 255, 255, 0.5);
   -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   transition: all 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 @media (max-width: 1024px) {
@@ -865,7 +865,7 @@ header .header__nav-global-image img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 
 /*
@@ -936,7 +936,7 @@ footer .footer__inner .footer__nav .footer__nav-list {
   align-items: center;
   flex-wrap: wrap;
   -moz-column-gap: 24px;
-  column-gap: 24px;
+       column-gap: 24px;
   row-gap: 12px;
 }
 footer .footer__inner .footer__nav .footer__nav-list .footer__nav-item .footer__nav-link {
@@ -977,7 +977,7 @@ footer .footer__inner .footer__sns-area .footer__sns-link img {
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 
 /*
@@ -1075,7 +1075,7 @@ Version: 1.0
 .home .first-view .first-view__inner .first-view__image {
   position: absolute;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .home .first-view .first-view__inner .first-view__image--1 {
   height: auto;
@@ -1135,11 +1135,12 @@ Version: 1.0
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 .home .first-view .first-view__inner .scroll {
   position: absolute;
-  right: 50%;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 140px;
   font-size: 16px;
   font-family: "EB Garamond", serif;
@@ -1641,7 +1642,7 @@ Version: 1.0
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 
 /*
@@ -1894,7 +1895,7 @@ Version: 1.0
   width: 100%;
   height: 100%;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 
 /*
@@ -2026,7 +2027,7 @@ Version: 1.0
   width: 100%;
   height: auto;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
 }
 .single-news .single-news-section .single-news__content a {
   color: #0cae2a;
@@ -2202,7 +2203,7 @@ Version: 1.0
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .form-area .form__main-area .form__form-area {
   flex: 3;
@@ -2317,16 +2318,16 @@ Version: 1.0
   box-sizing: border-box;
   /* ラジオボタン・チェックボックス以外にappearance: noneを適用 */
 }
-.wpcf7 input:not([type="radio"]):not([type="checkbox"]) {
+.wpcf7 input:not([type=radio]):not([type=checkbox]) {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
-.wpcf7 input[type="text"],
-.wpcf7 input[type="email"],
-.wpcf7 input[type="url"],
-.wpcf7 input[type="tel"],
-.wpcf7 input[type="password"],
+.wpcf7 input[type=text],
+.wpcf7 input[type=email],
+.wpcf7 input[type=url],
+.wpcf7 input[type=tel],
+.wpcf7 input[type=password],
 .wpcf7 textarea,
 .wpcf7 select {
   width: 100%;
@@ -2337,33 +2338,27 @@ Version: 1.0
   line-height: 1.5;
   letter-spacing: 0.05em;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; /* ブラウザ標準スタイルをリセット */
+     -moz-appearance: none;
+          appearance: none; /* ブラウザ標準スタイルをリセット */
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.wpcf7 input[type="text"]::-moz-placeholder,
-.wpcf7 input[type="email"]::-moz-placeholder,
-.wpcf7 input[type="url"]::-moz-placeholder,
-.wpcf7 input[type="tel"]::-moz-placeholder,
-.wpcf7 input[type="password"]::-moz-placeholder,
-.wpcf7 textarea::-moz-placeholder,
-.wpcf7 select::-moz-placeholder {
+.wpcf7 input[type=text]::-moz-placeholder, .wpcf7 input[type=email]::-moz-placeholder, .wpcf7 input[type=url]::-moz-placeholder, .wpcf7 input[type=tel]::-moz-placeholder, .wpcf7 input[type=password]::-moz-placeholder, .wpcf7 textarea::-moz-placeholder, .wpcf7 select::-moz-placeholder {
   color: #adb5bd;
 }
-.wpcf7 input[type="text"]::placeholder,
-.wpcf7 input[type="email"]::placeholder,
-.wpcf7 input[type="url"]::placeholder,
-.wpcf7 input[type="tel"]::placeholder,
-.wpcf7 input[type="password"]::placeholder,
+.wpcf7 input[type=text]::placeholder,
+.wpcf7 input[type=email]::placeholder,
+.wpcf7 input[type=url]::placeholder,
+.wpcf7 input[type=tel]::placeholder,
+.wpcf7 input[type=password]::placeholder,
 .wpcf7 textarea::placeholder,
 .wpcf7 select::placeholder {
   color: #adb5bd;
 }
-.wpcf7 input[type="text"]:focus,
-.wpcf7 input[type="email"]:focus,
-.wpcf7 input[type="url"]:focus,
-.wpcf7 input[type="tel"]:focus,
-.wpcf7 input[type="password"]:focus,
+.wpcf7 input[type=text]:focus,
+.wpcf7 input[type=email]:focus,
+.wpcf7 input[type=url]:focus,
+.wpcf7 input[type=tel]:focus,
+.wpcf7 input[type=password]:focus,
 .wpcf7 textarea:focus,
 .wpcf7 select:focus {
   outline: none;
@@ -2377,8 +2372,8 @@ Version: 1.0
 }
 .wpcf7 select {
   -webkit-appearance: auto;
-  -moz-appearance: auto;
-  appearance: auto; /* OS標準の矢印を表示 */
+     -moz-appearance: auto;
+          appearance: auto; /* OS標準の矢印を表示 */
   cursor: pointer;
 }
 .wpcf7 .wpcf7-checkbox {
@@ -2394,7 +2389,7 @@ Version: 1.0
   align-items: center;
   row-gap: 12px;
   -moz-column-gap: 32px;
-  column-gap: 32px;
+       column-gap: 32px;
   cursor: pointer;
 }
 .wpcf7 .wpcf7-list-item {
@@ -2407,8 +2402,8 @@ Version: 1.0
   cursor: pointer;
   font-size: 14px;
 }
-.wpcf7 input[type="checkbox"],
-.wpcf7 input[type="radio"] {
+.wpcf7 input[type=checkbox],
+.wpcf7 input[type=radio] {
   box-sizing: border-box;
   width: 20px;
   height: 20px;
@@ -2417,8 +2412,8 @@ Version: 1.0
   accent-color: #0cae2a;
   /* 標準の外観を保持（重要！） */
   -webkit-appearance: auto;
-  -moz-appearance: auto;
-  appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
   /* カスタムスタイルは最小限に */
   flex-shrink: 0; /* サイズ固定 */
 }
@@ -2474,8 +2469,8 @@ Version: 1.0
     transform: translateX(10px);
   }
 }
-.wpcf7 .submitWrapper input[type="submit"],
-.wpcf7 .submitWrapper button[type="submit"] {
+.wpcf7 .submitWrapper input[type=submit],
+.wpcf7 .submitWrapper button[type=submit] {
   letter-spacing: 0.1em;
 }
 .wpcf7 .submitWrapper .contactFormItemButton {
@@ -2535,4 +2530,4 @@ Version: 1.0
  =============================================== */
 .wpcf7-turnstile {
   margin-bottom: 24px;
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

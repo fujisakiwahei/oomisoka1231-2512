@@ -147,7 +147,8 @@
 
       .scroll {
         position: absolute;
-        right: 50%;
+        left: 50%;
+        transform: translateX(-50%);
         bottom: 140px;
         font-size: 16px;
         font-family: $fontEn;
