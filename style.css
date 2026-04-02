@@ -417,7 +417,7 @@ a {
   justify-content: center;
   overflow: hidden;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .works .works__list .works__item {
     width: calc(50% - 40px);
     flex-direction: column;

@@ -233,7 +233,7 @@ a {
       justify-content: center;
       overflow: hidden;
 
-      @media (max-width: $tabletBreakPoint) {
+      @media (max-width: $pcMediumBreakPoint) {
         width: calc((100% / 2) - (40px * 2 / 2));
         flex-direction: column;
         border: 1px solid $colorGreenDark;
