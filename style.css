@@ -346,7 +346,6 @@ a {
   padding: 80px 40px;
   background: #fff;
   overflow-x: hidden;
-  /* アイコン回転バウンスアニメーション */
 }
 @media (max-width: 1024px) {
   .works {
@@ -437,6 +436,7 @@ a {
   background: #fff;
 }
 .works .works__list .works__item .works__image img {
+  display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -481,9 +481,14 @@ a {
   }
 }
 .works .works__list .works__text-area .works__title {
-  font-size: 24px;
+  font-size: 18px;
   font-family: "EB Garamond", serif, "Noto Serif JP", serif;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+@media (max-width: 1024px) {
+  .works .works__list .works__text-area .works__title {
+    font-size: 16px;
+  }
 }
 .works .works__list .works__text-area .works__information {
   margin-top: 8px;
@@ -564,6 +569,9 @@ a {
     opacity: 0.7;
     scale: 0.98;
   }
+}
+.works {
+  /* アイコン回転バウンスアニメーション */
 }
 @keyframes bounceRotate {
   0% {
@@ -702,8 +710,7 @@ header {
   height: 60px;
   border-radius: 50vh;
   background-color: rgba(255, 255, 255, 0.5);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   transition: all 0.6s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 @media (max-width: 1024px) {
@@ -1001,9 +1008,6 @@ Version: 1.0
   /* ===============================================
    *  フロントページ ファーストビュー
    =============================================== */
-  /* ===============================================
-   *  フロントページ ニュース
-   =============================================== */
 }
 .home .first-view {
   width: 100%;
@@ -1021,8 +1025,6 @@ Version: 1.0
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  /* 線のアニメーション部分 */
-  /* 線のアニメーション */
 }
 @media (max-width: 1024px) {
   .home .first-view .first-view__inner {
@@ -1157,6 +1159,9 @@ Version: 1.0
   font-family: "EB Garamond", serif;
   color: #0cae2a;
 }
+.home .first-view .first-view__inner {
+  /* 線のアニメーション部分 */
+}
 .home .first-view .first-view__inner .scroll::before {
   animation: scroll 2s infinite;
   background-color: #0cae2a;
@@ -1168,6 +1173,9 @@ Version: 1.0
   position: absolute;
   right: 0;
   width: 1px;
+}
+.home .first-view .first-view__inner {
+  /* 線のアニメーション */
 }
 @keyframes scroll {
   0% {
@@ -1186,6 +1194,11 @@ Version: 1.0
     transform: scale(1, 0);
     transform-origin: 0 100%;
   }
+}
+.home {
+  /* ===============================================
+   *  フロントページ ニュース
+   =============================================== */
 }
 .home .front-news {
   width: 100%;
@@ -1572,6 +1585,42 @@ Version: 1.0
   .post-type-archive-works .works .section-title::after,
   .tax-works-category .works .section-title::after {
     margin-top: 16px;
+  }
+}
+.post-type-archive-works .works .works-pagination,
+.tax-works-category .works .works-pagination {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.post-type-archive-works .works .works-pagination .page-numbers,
+.tax-works-category .works .works-pagination .page-numbers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #0cae2a;
+  font-family: "EB Garamond", serif;
+  font-size: 18px;
+  color: #0cae2a;
+  transition: all 0.5s;
+}
+.post-type-archive-works .works .works-pagination .page-numbers.current,
+.tax-works-category .works .works-pagination .page-numbers.current {
+  pointer-events: none;
+  border-color: #0cae2a;
+  color: #fff;
+  background: #0cae2a;
+}
+@media (hover: hover) {
+  .post-type-archive-works .works .works-pagination .page-numbers:hover,
+  .tax-works-category .works .works-pagination .page-numbers:hover {
+    border-color: #0cae2a;
+    color: #fff;
+    background: #0cae2a;
   }
 }
 
@@ -2226,22 +2275,6 @@ Version: 1.0
 .wpcf7 {
   width: 100%;
   margin-inline: auto;
-  /* インナーコンテナ */
-  /* 各行のラッパー */
-  /* 見出し（ラベル）エリア */
-  /* 必須・任意バッジ */
-  /* 入力エリアのラッパー */
-  /* ==========================================================================
-        Input Elements Styling (タグ別の基本スタイル)
-  ========================================================================== */
-  /* テキスト入力系 (text, email, url, tel, password) */
-  /* テキストエリア固有 */
-  /* セレクトボックス - デフォルトスタイルへ戻す */
-  /* チェックボックスのラッパー (CF7が出力するspan) */
-  /* ラジオボタンのラッパー (CF7が出力するspan) */
-  /* チェックボックス・ラジオボタンのアイテムのラッパー (CF7が出力するspan) */
-  /* チェックボックス & ラジオボタン本体 */
-  /* 送信ボタン */
 }
 .wpcf7 * {
   box-sizing: border-box;
@@ -2256,10 +2289,16 @@ Version: 1.0
     padding: 40px 20px;
   }
 }
+.wpcf7 {
+  /* インナーコンテナ */
+}
 .wpcf7 .contactFormInner {
   display: flex;
   flex-direction: column;
   gap: 32px; /* 行間の余白 */
+}
+.wpcf7 {
+  /* 各行のラッパー */
 }
 .wpcf7 .contactFormItem {
   flex-shrink: 0;
@@ -2278,6 +2317,9 @@ Version: 1.0
   width: auto; /* ボタンの幅に合わせる */
   flex: 0 0 auto;
 }
+.wpcf7 {
+  /* 見出し（ラベル）エリア */
+}
 .wpcf7 .contactFormItemTitle {
   flex-shrink: 0;
   font-weight: 600;
@@ -2286,6 +2328,9 @@ Version: 1.0
   display: flex;
   align-items: center;
   gap: 8px;
+}
+.wpcf7 {
+  /* 必須・任意バッジ */
 }
 .wpcf7 .contactFormItemRequired,
 .wpcf7 .contactFormItemOptional {
@@ -2308,6 +2353,9 @@ Version: 1.0
   border: 1px solid #8d8d8d;
   color: #8d8d8d;
 }
+.wpcf7 {
+  /* 入力エリアのラッパー */
+}
 .wpcf7 .contactFormItemContent {
   flex-grow: 1;
   width: 100%;
@@ -2324,6 +2372,11 @@ Version: 1.0
   width: 100%;
   height: 100%;
 }
+.wpcf7 {
+  /* ==========================================================================
+        Input Elements Styling (タグ別の基本スタイル)
+  ========================================================================== */
+}
 .wpcf7 input {
   width: 100%;
   box-sizing: border-box;
@@ -2333,6 +2386,9 @@ Version: 1.0
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+.wpcf7 {
+  /* テキスト入力系 (text, email, url, tel, password) */
 }
 .wpcf7 input[type=text],
 .wpcf7 input[type=email],
@@ -2375,11 +2431,17 @@ Version: 1.0
   outline: none;
   border-bottom-color: #0cae2a;
 }
+.wpcf7 {
+  /* テキストエリア固有 */
+}
 .wpcf7 textarea {
   min-height: 160px;
   resize: vertical; /* 縦方向のみリサイズ許可 */
   letter-spacing: 0.05em;
   font-size: 14px;
+}
+.wpcf7 {
+  /* セレクトボックス - デフォルトスタイルへ戻す */
 }
 .wpcf7 select {
   -webkit-appearance: auto;
@@ -2387,12 +2449,18 @@ Version: 1.0
           appearance: auto; /* OS標準の矢印を表示 */
   cursor: pointer;
 }
+.wpcf7 {
+  /* チェックボックスのラッパー (CF7が出力するspan) */
+}
 .wpcf7 .wpcf7-checkbox {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 20px;
   cursor: pointer;
+}
+.wpcf7 {
+  /* ラジオボタンのラッパー (CF7が出力するspan) */
 }
 .wpcf7 .wpcf7-radio {
   display: flex;
@@ -2403,6 +2471,9 @@ Version: 1.0
        column-gap: 32px;
   cursor: pointer;
 }
+.wpcf7 {
+  /* チェックボックス・ラジオボタンのアイテムのラッパー (CF7が出力するspan) */
+}
 .wpcf7 .wpcf7-list-item {
   margin-left: 0;
 }
@@ -2412,6 +2483,9 @@ Version: 1.0
   gap: 6px;
   cursor: pointer;
   font-size: 14px;
+}
+.wpcf7 {
+  /* チェックボックス & ラジオボタン本体 */
 }
 .wpcf7 input[type=checkbox],
 .wpcf7 input[type=radio] {
@@ -2427,6 +2501,9 @@ Version: 1.0
           appearance: auto;
   /* カスタムスタイルは最小限に */
   flex-shrink: 0; /* サイズ固定 */
+}
+.wpcf7 {
+  /* 送信ボタン */
 }
 .wpcf7 .submitWrapper {
   position: relative;

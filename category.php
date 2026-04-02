@@ -37,7 +37,7 @@
 
             <?php if ($query->have_posts()) : ?>
                 <?php while ($query->have_posts()) : $query->the_post(); ?>
-                    <a href="<?php the_permalink(); ?>" class="archive-news__item fade-up">
+                    <a href="<?php the_permalink(); ?>" class="archive-news__item">
                         <div class="archive-news__item__information">
                             <time datetime="<?php the_time('Y-m-d'); ?>" class="archive-news__item__date"><?php the_time('Y.m.d'); ?></time>
                             <p class="archive-news__item__category">

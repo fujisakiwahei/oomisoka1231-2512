@@ -250,6 +250,7 @@ a {
         background: $colorWhite;
 
         img {
+          display: block;
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -296,9 +297,13 @@ a {
       }
 
       .works__title {
-        font-size: 24px;
+        font-size: 18px;
         font-family: $fontEn, $fontSerif;
         transition: all 0.5s $easeOutQuint;
+
+        @media (max-width: $tabletBreakPoint) {
+          font-size: 16px;
+        }
       }
       .works__information {
         margin-top: 8px;

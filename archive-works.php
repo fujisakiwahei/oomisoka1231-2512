@@ -53,13 +53,14 @@
                 </a>
             <?php endforeach; ?>
         </div>
-        <div class="works__list">
+        <div class="works__list fade-up">
             <?php
             $args = array(
                 'post_type' => 'works',
-                'posts_per_page' => -1,
+                'posts_per_page' => 16,
                 'orderby' => 'date',
-                'order' => 'DESC'
+                'order' => 'DESC',
+                'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
             );
 
             $query = new WP_Query($args);
@@ -70,7 +71,7 @@
                     <?php $link = get_field('external_link'); ?>
                     <?php $description = get_field('description'); ?>
                     <?php $works_terms = get_the_terms(get_the_ID(), 'works-category'); ?>
-                    <div class="works__item fade-up">
+                    <div class="works__item">
                         <p class="works__image">
                             <img
                                 src="<?php echo get_the_post_thumbnail_url(); ?>"
@@ -92,7 +93,7 @@
                                 <?php endif; ?>
                             </div>
                             <?php if ($description) : ?>
-                                <p class="works__description-title">Description</p>
+                                <!-- <p class="works__description-title">Description</p> -->
                                 <p class="works__description"><?php echo nl2br(esc_html($description)); ?></p>
                             <?php endif; ?>
                             <?php if ($link) : ?>
@@ -109,6 +110,19 @@
             <?php else : ?>
                 <p>投稿が見つかりませんでした。</p>
             <?php endif; ?>
+        </div>
+        <div class="works-pagination">
+            <?php
+            echo paginate_links(array(
+                'total' => $query->max_num_pages,
+                'current' => max(1, get_query_var('paged')),
+                'format' => '?paged=%#%',
+                'show_all' => false,
+                'end_size' => 1,
+                'mid_size' => 1,
+                'prev_next' => false,
+            ));
+            ?>
         </div>
     </div>
 </section>

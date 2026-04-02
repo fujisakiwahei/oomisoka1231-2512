@@ -27,5 +27,41 @@
         }
       }
     }
+
+    .works-pagination {
+      margin-top: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+
+      .page-numbers {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border: 1px solid $colorGreen;
+        font-family: $fontEn;
+        font-size: 18px;
+        color: $colorGreen;
+        transition: all 0.5s;
+
+        &.current {
+          pointer-events: none;
+          border-color: $colorGreen;
+          color: $colorWhite;
+          background: $colorGreen;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            border-color: $colorGreen;
+            color: $colorWhite;
+            background: $colorGreen;
+          }
+        }
+      }
+    }
   }
 }

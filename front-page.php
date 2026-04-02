@@ -173,7 +173,7 @@
                                 <?php endif; ?>
                             </div>
                             <?php if ($description) : ?>
-                                <p class="works__description-title">Description</p>
+                                <!-- <p class="works__description-title">Description</p> -->
                                 <p class="works__description"><?php echo nl2br(esc_html($description)); ?></p>
                             <?php endif; ?>
                             <?php if ($link) : ?>

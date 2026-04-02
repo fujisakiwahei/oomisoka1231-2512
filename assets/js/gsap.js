@@ -1,12 +1,21 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
-  document.querySelectorAll(".fade-up").forEach((el) => {
-    ScrollTrigger.create({
-      trigger: el,
-      start: "top 80%", // 上端が画面下30%で発火
-      onEnter: () => el.classList.add("is-visible"),
-      onEnterBack: () => el.classList.add("is-visible"),
-      once: true, // 1回のみ
-    });
+
+  if (!document.querySelector(".fade-up")) {
+    return;
+  }
+
+  // 要素ごとに create すると件数分の監視が走る。batch でまとめて発火し軽量化。
+  ScrollTrigger.batch(".fade-up", {
+    start: "top 80%",
+    once: true,
+    interval: 0.12,
+    batchMax: 12,
+    onEnter: (elements) => {
+      elements.forEach((el) => el.classList.add("is-visible"));
+    },
+    onEnterBack: (elements) => {
+      elements.forEach((el) => el.classList.add("is-visible"));
+    },
   });
 });
